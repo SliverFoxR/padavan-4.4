@@ -178,7 +178,7 @@ get_wired_mac_e2p_offset(int is_wan)
 	return 0xe000;
 #elif defined (BOARD_RM2100) || defined (BOARD_NEWIFI) 
 	return 0xe006;	
-#elif defined (BOARD_CR660x)  || defined (BOARD_Q20)  
+#elif defined (BOARD_CR660x) || defined (BOARD_Q20)
 	return 0x3FFFA;
 #else
 	return (is_wan) ? OFFSET_MAC_GMAC2 : OFFSET_MAC_GMAC0;
@@ -684,6 +684,7 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	fprintf(fp, "CalCacheApply=%d\n", 0);
 	fprintf(fp, "LoadCodeMethod=%d\n", 0);
 	fprintf(fp, "VHT_Sec80_Channel=%d\n", 0);
+	fprintf(fp, "WNMEnable=%d\n", 0);
 	fprintf(fp, "SKUenable=%d\n", 0);
 	fprintf(fp, "PowerUpenable=%d\n", 0);
 	fprintf(fp, "VOW_Airtime_Fairness_En=%d\n", 0);
@@ -704,7 +705,8 @@ gen_ralink_config(int is_soc_ap, int is_aband, int disable_autoscan)
 	fprintf(fp, "BandDisabled=%d\n", 0);
 	fprintf(fp, "DfsDedicatedZeroWait=%d\n", 0);
 	fprintf(fp, "DfsZeroWaitDefault=%d\n", 0);
-//	fprintf(fp, "KernelRps=%d\n", 0);
+	fprintf(fp, "KernelRps=%d\n", 0);
+	fprintf(fp, "RRMEnable=%d\n", 0);
 	fprintf(fp, "MboSupport=%d\n", 0);
 
 #if defined (USE_MT7615_AP) || defined (USE_MT7915_AP)

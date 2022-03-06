@@ -579,7 +579,7 @@ reload_nat_modules(void)
 	int needed_pptp = 0;
 	int wan_nat_x = nvram_get_int("wan_nat_x");
 #if defined (USE_HW_NAT)
-	char hnat_param[80];
+	char hnat_param[32];
 	int hwnat_allow = is_hwnat_allow();
 	int hwnat_loaded = is_hwnat_loaded();
 #endif
